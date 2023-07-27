@@ -8,6 +8,7 @@ import {
   StyleSheet,
   Image,
   StatusBar,
+  ScrollView,
   Dimensions,
   FlatList,
 } from 'react-native';
@@ -39,6 +40,18 @@ const BreadCrumbs = ({title, index}) => (
     <Text style={styles.breadcrumbsTitle}>{title}</Text>
   </View>
 );
+const PrayerSmallCard = ({title, category}) => (
+  <View style={styles.prayerSmallCard}>
+    <Image
+      style={styles.prayerSmallCardimage}
+      source={require('../../assets/bg1.jpg')}
+    />
+    <View style={styles.prayerSmallCardSec}>
+      <Text style={styles.prayerSmallCardTitle}>{title}</Text>
+      <Text style={styles.prayerSmallCardsubTitle}>{category}</Text>
+    </View>
+  </View>
+);
 const Home = () => {
   const DATA = [
     {
@@ -68,11 +81,45 @@ const Home = () => {
       img: '',
     },
   ];
-  const prayerTypes = ['Novenas', 'Rosary', 'Special', 'Yama Prarthana'];
+  const prayerTypes = [
+    'Novenas',
+    'Rosary',
+    'Special',
+    'Novenas',
+    'Rosary',
+    'Special',
+    'Yama Prarthana',
+  ];
+  const prayers = [
+    {
+      title: 'Title1',
+      category: 'Daily Prayer',
+    },
+    {
+      title: 'Title1',
+      category: 'Novena',
+    },
+    {
+      title: 'Title2',
+      category: 'Yama Prarthana',
+    },
+    {
+      title: 'Title3',
+      category: 'Novena',
+    },
+    {
+      title: 'Title4',
+      category: 'Daily Prayer',
+    },
+    {
+      title: 'Title5',
+      category: 'Novena',
+    },
+  ];
   const windowWidth = Dimensions.get('window').width;
   const windowHeight = Dimensions.get('window').height;
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <StatusBar
         animated={true}
         translucent={true}
@@ -85,34 +132,47 @@ const Home = () => {
         </View>
         <View style={styles.section}>
           <Text style={styles.sectionHeading}>Popular Prayers</Text>
-          <FlatList
-            data={DATA}
-            horizontal
-            showsHorizontalScrollIndicator={false}
-            renderItem={({item, i}) => (
-              <PrayerCard
-                img={item.img}
-                index={item.index}
-                title={item.title}
-              />
-            )}
-            keyExtractor={item => item.id}
-          />
+          <ScrollView>
+            <FlatList
+              data={DATA}
+              horizontal
+              showsHorizontalScrollIndicator={false}
+              renderItem={({item, i}) => (
+                <PrayerCard
+                  img={item.img}
+                  index={item.index}
+                  title={item.title}
+                />
+              )}
+              keyExtractor={item => item.id}
+            />
+          </ScrollView>
         </View>
         <View style={styles.section2}>
           <Text style={styles.sectionHeading}>Other Prayers</Text>
-          <FlatList
-            data={prayerTypes}
-            horizontal
-            showsHorizontalScrollIndicator={false}
-            renderItem={({item, index}) => (
-              <BreadCrumbs index={index} title={item} />
-            )}
-            keyExtractor={item => item.id}
-          />
+          <ScrollView horizontal={false}>
+            <FlatList
+              data={prayerTypes}
+              horizontal
+              showsHorizontalScrollIndicator={false}
+              renderItem={({item, index}) => (
+                <BreadCrumbs index={index} title={item} />
+              )}
+              keyExtractor={item => item.id}
+            />
+          </ScrollView>
+        </View>
+        <View style={styles.sectionList}>
+          <ScrollView horizontal={false}>
+            {prayers.map((item, i) => {
+              return (
+                <PrayerSmallCard title={item.title} category={item.category} />
+              );
+            })}
+          </ScrollView>
         </View>
       </View>
-    </View>
+    </ScrollView>
   );
 };
 

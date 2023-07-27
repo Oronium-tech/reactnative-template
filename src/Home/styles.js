@@ -6,9 +6,8 @@ import {RFPercentage, RFValue} from 'react-native-responsive-fontsize';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#232627',
+    backgroundColor: '#141718',
     alignContent: 'flex-start',
-    justifyContent: 'flex-start',
   },
   contentholder: {
     marginTop: StatusBar.currentHeight,
@@ -69,10 +68,47 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     marginRight: 15,
     borderRadius: 1000,
-    borderColor: 'red',
+    borderColor: '#588AF1',
     borderWidth: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
-  breadcrumbsTitle: {},
+  breadcrumbsTitle: {color: '#588AF1', fontFamily: 'DMSansLight'},
+  sectionList: {
+    paddingHorizontal: 25,
+    marginTop: 15,
+  },
+  prayerSmallCardimage: {
+    height: windowWidth * 0.18,
+    width: windowWidth * 0.18,
+    borderRadius: 1000,
+  },
+  prayerSmallCard: {
+    padding: 8,
+    borderRadius: 10,
+    width: '100%',
+    marginBottom: 15,
+    flexDirection: 'row',
+    backgroundColor: '#232627',
+    alignItems: 'center',
+  },
+  prayerSmallCardSec: {
+    flexDirection: 'column',
+    marginLeft: 10,
+  },
+  prayerSmallCardTitle: {
+    fontFamily: 'DMSansSemiBold',
+    fontSize: RFValue(15),
+    letterSpacing: -0.5,
+
+    color: '#fff',
+  },
+  prayerSmallCardsubTitle: {
+    fontFamily: 'DMSansLight',
+    fontSize: RFValue(11),
+
+    color: 'rgba(255, 255, 255, 0.6)',
+  },
 });
 
 export default styles;
