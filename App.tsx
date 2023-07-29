@@ -4,6 +4,8 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Home from './src/Home/home';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {Dimensions} from 'react-native';
+import Search from './src/Search/search';
+import Read from './src/Read/read';
 const Tab = createBottomTabNavigator();
 const YourApp = () => {
   const windowHeight = Dimensions.get('window').height;
@@ -48,8 +50,8 @@ const YourApp = () => {
           tabBarInactiveTintColor: 'gray',
         })}>
         <Tab.Screen name="Home" component={Home} />
-        <Tab.Screen name="Search" component={Home} />
-        <Tab.Screen name="Tabs" component={Home} />
+        <Tab.Screen name="Search" component={Search} />
+        <Tab.Screen name="Tabs" component={Read} />
         <Tab.Screen name="S" component={Home} />
       </Tab.Navigator>
     </NavigationContainer>

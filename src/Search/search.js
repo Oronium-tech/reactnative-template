@@ -5,7 +5,7 @@ import React from 'react';
 import {
   Text,
   View,
-  StyleSheet,
+  TextInput,
   Image,
   StatusBar,
   ScrollView,
@@ -13,22 +13,9 @@ import {
   FlatList,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import styles from './styles';
-const PrayerCard = ({title, index}) => (
-  <View
-    style={[
-      {
-        marginLeft: index ? 25 : 0,
-      },
-      styles.prayerCard,
-    ]}>
-    <Image
-      style={styles.prayerCardimage}
-      source={require('../../assets/bg1.jpg')}
-    />
-    <Text style={styles.prayerCardTitle}>{title}</Text>
-  </View>
-);
+import styles from '../Home/styles';
+import searchStyles from './styles';
+
 const BreadCrumbs = ({title, index}) => (
   <View
     style={[
@@ -52,35 +39,7 @@ const PrayerSmallCard = ({title, category}) => (
     </View>
   </View>
 );
-const Home = () => {
-  const DATA = [
-    {
-      id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-      title: 'First Item',
-      img: '',
-      index: 1,
-    },
-    {
-      id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-      title: 'Second Item',
-      img: '',
-    },
-    {
-      id: '58694a0f-3da1-471f-bd96-145571e29d72',
-      title: 'Third Item',
-      img: '',
-    },
-    {
-      id: '58694as0f-3da1-471f-bd96-145571e29d72',
-      title: 'Third Item',
-      img: '',
-    },
-    {
-      id: '5869s4a0f-3da1-471f-bd96-145571e29d72',
-      title: 'Third Item',
-      img: '',
-    },
-  ];
+const Search = () => {
   const prayerTypes = [
     'Novenas',
     'Rosary',
@@ -131,25 +90,13 @@ const Home = () => {
           <Icon name="md-alarm" size={30} color="#fff" />
         </View>
         <View style={styles.section}>
-          <Text style={styles.sectionHeading}>Popular Prayers</Text>
-          <ScrollView>
-            <FlatList
-              data={DATA}
-              horizontal
-              showsHorizontalScrollIndicator={false}
-              renderItem={({item, i}) => (
-                <PrayerCard
-                  img={item.img}
-                  index={item.index}
-                  title={item.title}
-                />
-              )}
-              keyExtractor={item => item.id}
-            />
-          </ScrollView>
+          <Text style={searchStyles.sectionHeading}>Search Prayers</Text>
+          <View style={searchStyles.searchContainer}>
+            <TextInput style={searchStyles.inputBox} />
+            <Icon name="md-search" size={30} color="#fff" />
+          </View>
         </View>
         <View style={styles.section2}>
-          <Text style={styles.sectionHeading}>Other Prayers</Text>
           <ScrollView horizontal={false}>
             <FlatList
               data={prayerTypes}
@@ -180,4 +127,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Search;
