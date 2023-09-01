@@ -29,33 +29,6 @@
     "react-navigation-stack": "react-navigation/stack"
 ```
 
-# React Native Project Folder Structure
-
-This is a suggested folder structure for organizing your React Native project. A well-organized structure can help maintain code clarity and scalability.
-
-````plaintext
-project-root/
-  ├── src/                  // Source code for your app
-  │   ├── assets/           // Static assets (e.g., images, fonts)
-  │   ├── components/       // Reusable UI components
-  │   ├── navigation/       // Navigation configuration and screens
-  │   ├── screens/          // App screens or pages
-  │   ├── services/         // API calls, third-party services
-  │   ├── store/            // Redux store setup and slices
-  │   ├── styles/           // Global styles and themes
-  │   ├── utils/            // Utility functions and helpers
-  │   └── App.js            // App entry point
-  ├── .buckconfig           // Buck configuration (if used)
-  ├── .editorconfig         // Editor configuration
-  ├── .eslintrc.js          // ESLint configuration
-  ├── .gitignore            // Git ignore file
-  ├── .prettierrc.js        // Prettier configuration
-  ├── babel.config.js       // Babel configuration
-  ├── package.json          // Node.js dependencies and scripts
-  ├── README.md             // Project README
-  └── yarn.lock             // Yarn lock file (generated, do not modify)
-
-
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
 # Getting Started
@@ -74,7 +47,7 @@ npm start
 
 # OR using Yarn
 yarn start
-
+```
 
 ## Step 2: Start your Application
 
@@ -135,4 +108,3 @@ To learn more about React Native, take a look at the following resources:
 - [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
 - [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
 - [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
-````
