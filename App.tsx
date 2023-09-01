@@ -1,61 +1,59 @@
+/* eslint-disable prettier/prettier */
+/* eslint-disable react-native/no-inline-styles */
+import 'react-native-gesture-handler';
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import Home from './src/Home/home';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import {Dimensions} from 'react-native';
-import Search from './src/Search/search';
-import Read from './src/Read/read';
+import {Button, View, Text} from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialIcons';
+const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
-const YourApp = () => {
-  const windowHeight = Dimensions.get('window').height;
+
+function Tab1Screen() {
+  return (
+    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+      <Text>Tab 1 Content</Text>
+    </View>
+  );
+}
+
+function Tab2Screen() {
+  return (
+    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+      <Text>Tab 2 Content</Text>
+    </View>
+  );
+}
+
+function HomeScreen() {
+  return (
+    <Tab.Navigator>
+      <Tab.Screen name="Tab1" component={Tab1Screen} />
+      <Tab.Screen name="Tab2" component={Tab2Screen} />
+    </Tab.Navigator>
+  );
+}
+
+function SplashScreen({navigation}) {
+  return (
+    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+      <Text>Splash Scdreen</Text>
+      <Icon name="settings-voice" color="#4F8EF7" />
+      <Button title="Go to Home" onPress={() => navigation.navigate('Home')} />
+    </View>
+  );
+}
+
+function App() {
   return (
     <NavigationContainer>
-      <Tab.Navigator
-        screenOptions={({route}) => ({
-          tabBarShowLabel: false,
-          tabBarStyle: {
-            backgroundColor: '#141718',
-            borderWidth: 0,
-            swipeEnabled: false,
-            position: 'absolute',
-            bottom: 0,
-
-            justifyContent: 'center',
-            alignItems: 'center',
-
-            height: windowHeight * 0.07,
-            borderTopWidth: 0,
-            margin: 10,
-            marginHorizontal: 30,
-            borderRadius: 1000,
-          },
-          headerShown: false,
-          // eslint-disable-next-line react/no-unstable-nested-components
-          tabBarIcon: ({focused, color, size}) => {
-            let iconName;
-            if (route.name === 'Home') {
-              iconName = focused ? 'ios-home' : 'ios-home';
-            } else if (route.name === 'Search') {
-              iconName = focused ? 'search' : 'search';
-            } else if (route.name === 'Tabs') {
-              iconName = focused ? 'ios-heart' : 'ios-heart';
-            } else if (route.name === 'S') {
-              iconName = focused ? 'ios-settings' : 'ios-settings';
-            }
-            // You can return any component that you like here!
-            return <Ionicons name={iconName} size={size} color={color} />;
-          },
-          tabBarActiveTintColor: '#fff',
-          tabBarInactiveTintColor: 'gray',
-        })}>
-        <Tab.Screen name="Home" component={Home} />
-        <Tab.Screen name="Search" component={Search} />
-        <Tab.Screen name="Tabs" component={Read} />
-        <Tab.Screen name="S" component={Home} />
-      </Tab.Navigator>
+      <Stack.Navigator initialRouteName="SplashScreen">
+        <Stack.Screen name="SplashScreen" component={SplashScreen} />
+        <Stack.Screen name="Home" component={HomeScreen} />
+      </Stack.Navigator>
     </NavigationContainer>
   );
-};
+}
 
-export default YourApp;
+export default App;
