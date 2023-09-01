@@ -6,8 +6,8 @@
   <img src="https://img.icons8.com/color/48/000000/react-native.png" alt="React Native">
 
   <img src="https://img.icons8.com/color/48/000000/javascript.png" alt="JavaScript">
- <img src="https://img.icons8.com/color/48/000000/react-native.png" alt="React Native">
-  <img src="https://img.icons8.com/color/48/000000/react-navigation.png" alt="React Navigation">
+
+
 </div>
 
 # Oronium React native Starter template
