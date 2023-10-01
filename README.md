@@ -20,6 +20,7 @@
     "react": "18.2.0",
     "react-native": "0.72.1",
     "react-native-gesture-handler": "^2.12.1",
+    "@reduxjs/toolkit": "^1.9.6",
     "react-native-linear-gradient": "^2.7.3",
     "react-native-responsive-fontsize": "^0.5.1",
     "react-native-safe-area-context": "^4.7.1",
