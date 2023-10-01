@@ -7,6 +7,8 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {Button, View, Text} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import {Provider} from 'react-redux';
+import {store} from './src/store/store';
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
@@ -47,12 +49,14 @@ function SplashScreen({navigation}) {
 
 function App() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="SplashScreen">
-        <Stack.Screen name="SplashScreen" component={SplashScreen} />
-        <Stack.Screen name="Home" component={HomeScreen} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <Provider store={store}>
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="SplashScreen">
+          <Stack.Screen name="SplashScreen" component={SplashScreen} />
+          <Stack.Screen name="Home" component={HomeScreen} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </Provider>
   );
 }
 
